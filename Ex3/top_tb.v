@@ -19,10 +19,25 @@ module top_tb(
 	reg [7:0] counter_out;
 	reg clk;
 	reg err;
-//Todo: Clock generation
+	reg on_off;
+	reg rst;
+	reg change;
 
+//Todo: Clock generation
+	initial 
+	begin
+		clk = 1'b0;
+		forever
+			# (CLK_PERIOD/2) clk=~clk;
+	end
 //Todo: User logic
-    
+    initial begin
+	err = 0;
+	counter_out = 0;
+	on_off = 0;
+	rst = 0;
+	change = 0;
+	forever begin
 //Todo: Finish test, check for success
 
 //Todo: Instantiate counter module
