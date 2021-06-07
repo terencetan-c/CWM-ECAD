@@ -34,6 +34,6 @@ module blinds(
 		
          
     //Todo: add you logic here
-    assign out = (a=0) ? func[(a&&b)+(a||b)] : func[(a&&b)+2]
+    assign out = func[{a,b}];
 
 endmodule
