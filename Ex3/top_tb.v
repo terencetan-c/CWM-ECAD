@@ -37,9 +37,18 @@ module top_tb(
 	on_off = 0;
 	rst = 0;
 	change = 0;
-	forever begin
+	end
 //Todo: Finish test, check for success
 
 //Todo: Instantiate counter module
- 
+ 	monitor top (
+	.clk (clk),
+	.rst (rst),
+	.change (change),
+	.on_off (on_off),
+	.counter_out (counter_out)
+	);
+
+
+
 endmodule 
