@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Exercise #3 - Active IoT Devices Monitor
-// Student Name:
-// Date: 
+// Student Name: Terence Tan
+// Date: 7 June 2021
 //
 //  Description: In this exercise, you need to design a counter of active IoT devices, where 
 //  if the rst=1, the counter should be set to zero. If event=0, the value
@@ -20,11 +20,34 @@
 
 module monitor (
     //Todo: add ports 
+	input clk,
+	input rst,
+	input change,
+	input on_off,
+	output [7:0]counter_out
 
     );
                     
     //Todo: add registers and wires, if needed
-
+	reg [7:0]counter_out;
     //Todo: add user logic
-      
+      always @(posedge clk) begin
+		if (rst) begin
+			counter_out<=0;
+		end
+		else begin
+			if (change) begin
+				if (on_off) begin
+					counter_out <= counter_out + 1;
+				end
+				else begin
+					counter_out <= counter_out  - 1;
+				end
+			end
+			else begin
+				counter_out <= counter_out;
+			end
+		end
+	end
+					
 endmodule
