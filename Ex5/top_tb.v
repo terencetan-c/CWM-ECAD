@@ -37,7 +37,7 @@ module top_tb(
 			error = 0;
 			temperature = 5'd24;
 				forever
-					# (CLK_PERIOD*2) temperature =~temperature;
+					# (CLK_PERIOD*10) temperature =~temperature;
 			//heating <= 1;
 			//cooling<=0;
 		
