@@ -55,8 +55,6 @@ module top_tb(
 	rst = 1;
 		forever
 			# (CLK_PERIOD*4) rst=~rst;
-			//# (CLK_PERIOD*2) change=~change;
-			//# (CLK_PERIOD*3) on_off=~on_off;
 
 
 	end
