@@ -33,16 +33,40 @@ module top_tb(
 //Todo: User logic
     initial begin
 	err = 0;
+	end
+	
+	initial 
+	begin
 	//counter_out = 0;
 	on_off = 1;
+	   forever
+	       # (CLK_PERIOD*2) on_off=~on_off;
+	end
+	
+	initial
+	begin
+    change = 1;
+	   forever
+	       # (CLK_PERIOD) change=~change;
+    end
+    
+	initial
+    	begin
 	rst = 1;
 		forever
-			# (CLK_PERIOD*10) rst=~rst;
+			# (CLK_PERIOD*4) rst=~rst;
+			//# (CLK_PERIOD*2) change=~change;
+			//# (CLK_PERIOD*3) on_off=~on_off;
 
-	change = 1;
+
 	end
 //Todo: Finish test, check for success
-
+    initial begin
+        #600
+        if (err==0)
+            $display("***TEST PASSED! :) ***");
+        $finish;
+    end
 //Todo: Instantiate counter module
  	monitor top (
 	.clk (clk),
