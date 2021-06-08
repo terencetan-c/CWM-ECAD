@@ -21,7 +21,6 @@ module Air_con (
 	output cooling
 	);
 
-	reg [4:0] temperature;
 	reg heating;
 	reg cooling;
 
