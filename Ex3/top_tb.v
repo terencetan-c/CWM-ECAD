@@ -35,7 +35,10 @@ module top_tb(
 	err = 0;
 	//counter_out = 0;
 	on_off = 1;
-	rst = 0;
+	rst = 1;
+		forever
+			# (CLK_PERIOD*10) rst=~rst;
+
 	change = 1;
 	end
 //Todo: Finish test, check for success
