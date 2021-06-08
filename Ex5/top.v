@@ -26,8 +26,13 @@ module Air_con (
 
 
 	//User logic
-	
+	initial begin
+	heating = 0;
+	cooling = 0;
+	end
 	always @(posedge clk) begin
+		//heating <=0;
+
 		if ((heating==0)&&(cooling==0)) begin
 			if ((temperature>18)&&(temperature<22)) begin
 				heating<=0;
