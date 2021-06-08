@@ -22,9 +22,50 @@ module Air_con (
 	);
 
 	reg [4:0] temperature;
+	reg heating;
+	reg cooling;
 
 
 	//User logic
 	
 	always @(posedge clk) begin
+		if ((heating==0)&&(cooling==0)) begin
+			if ((temperature>18)&&(temperature<22)) begin
+				heating<=0;
+				cooling<=0;
+			end
+			else if (temperature<=18) begin
+				heating<=1;
+				cooling<=0;
+			end
+			else begin
+				cooling<=1;
+				heating<=0;
+			end
+		end
+		else if ((heating==1)&&(cooling==0)) begin
+			cooling<=0;
+			if (temperature<20) begin
+				heating<=1;
+				//cooling<=0;
+			end
+			else begin
+				heating<=0;
+				//cooling<=0
+			end
+		end
+		
+		else if ((heating==0)&&(cooling==1)) begin
+			heating<=0;
+			if (temperature>20) begin
+				cooling<=1;
+			end
+			else begin
+				cooling<=0;
+			end
+		end
+	end
+				
+
+endmodule
 		
