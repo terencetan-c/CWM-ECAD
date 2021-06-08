@@ -16,7 +16,7 @@ module top_tb(
 //Todo: Parameters
 	parameter CLK_PERIOD = 10;
 //Todo: Regitsers and wires
-	reg [7:0] counter_out;
+	wire [7:0] counter_out;
 	reg clk;
 	reg err;
 	reg on_off;
@@ -33,10 +33,10 @@ module top_tb(
 //Todo: User logic
     initial begin
 	err = 0;
-	counter_out = 0;
-	on_off = 0;
+	//counter_out = 0;
+	on_off = 1;
 	rst = 0;
-	change = 0;
+	change = 1;
 	end
 //Todo: Finish test, check for success
 
