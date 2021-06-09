@@ -20,10 +20,9 @@ module top_tb(
 	reg clk;
 	reg [4:0] temperature;
 	reg error;
-	//initial
-		//heating =0;
-		//cooling =0;
-//	end
+
+
+
 	// Clock generation
 	initial
 	begin
@@ -35,13 +34,30 @@ module top_tb(
 	// User logic
 		initial begin
 			error = 0;
+		end
+
+		initial begin
 			temperature = 5'd24;
-				forever
-					# (CLK_PERIOD*10) temperature =~temperature;
-			//heating <= 1;
-			//cooling<=0;
+			#10
+			temperature = 22;
+			#10
+			temperature = 20;
+			#10
+			temperature = 18;
+			#10
+			temperature = 16;
+			#10
+			temperature = 18;
+			#10
+			temperature = 20;
+			#10
+			temperature = 22;
+			#10
+			//$finish;
 		
 
+		
+		
 		forever begin
 		# (CLK_PERIOD-6)
 		
