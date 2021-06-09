@@ -35,7 +35,8 @@ module top_tb(
 		initial begin
 			error = 0;
 		end
-
+		
+		// Test bench different temperatures
 		initial begin
 			temperature = 5'd24;
 			#10
@@ -53,7 +54,6 @@ module top_tb(
 			#10
 			temperature = 22;
 			#10
-			//$finish;
 		
 
 		
