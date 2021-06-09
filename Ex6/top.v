@@ -33,11 +33,20 @@ module RGB_converter(
 	assign wea = 0;
 	assign dina=0;
 
-
+	// User logic
+	always @(posedge clk) begin
+	
+		if (enable==0) begin
+			#10;
+		end
+		else begin
+			#0;
+		end
+	end
 	
 
 
-	RGB_Converter your_instance_name (
+	RGB_Converter RGB_converter (
   		.clka(clk),    // input wire clka
   		.ena(enable),      // input wire ena
   		.wea(wea),      // input wire [0 : 0] wea

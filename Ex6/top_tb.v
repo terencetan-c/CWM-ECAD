@@ -18,7 +18,7 @@ module top_tb(
 	reg [2:0] colour;
 	wire [23:0] rgb;
 	reg clk;
-	wire enable;
+	reg enable;
 	reg error;
 
 
@@ -30,7 +30,11 @@ module top_tb(
 		forever
 			# (CLK_PERIOD/2) clk=~clk;
 	end
-
+    initial begin
+        enable = 1;
+        forever
+            # (CLK_PERIOD*2) enable=~enable;
+    end
 	// User logic
 		initial begin
 			error = 0;
@@ -39,23 +43,31 @@ module top_tb(
 		// Test bench different temperatures
 		initial begin
 			colour = 3'd0;
-			#10
+			#50
 			colour = 1;
-			#10
+			#50
 			colour = 2;
-			#10
+			#50
 			colour = 3;
-			#10
+			#50
 			colour = 4;
-			#10
+			#50
 			colour = 5;
-			#10
+			#50
 			colour = 6;
-			#10
+			#50
 			colour = 7;
-			#10
+			#50
+		    colour = 4;
+		    #50
+		    colour = 5;
+		    #50
+		    colour = 1;
+		    #50
+		    colour=6;
+		    #50;
 		
-
+		
 		end
 		
 		//forever begin
