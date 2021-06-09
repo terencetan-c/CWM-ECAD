@@ -15,7 +15,7 @@ module top_tb(
 	parameter CLK_PERIOD = 10;
 
 	// Wires and registers
-	wire [2:0] colour;
+	reg [2:0] colour;
 	wire [23:0] rgb;
 	reg clk;
 	wire enable;
@@ -36,19 +36,40 @@ module top_tb(
 			error = 0;
 		end
 		
+		// Test bench different temperatures
+		initial begin
+			colour = 3'd0;
+			#10
+			colour = 1;
+			#10
+			colour = 2;
+			#10
+			colour = 3;
+			#10
+			colour = 4;
+			#10
+			colour = 5;
+			#10
+			colour = 6;
+			#10
+			colour = 7;
+			#10
+		
 
+		end
 		
 		//forever begin
 		//# (CLK_PERIOD-6)
 		
 		//If both heating and cooling are 'ON', which is forbidden, test failed
 		//if ((heating)&&(cooling)) begin
-		//	error = 1;
-		//	$display("***TEST FAILED! Heating and Cooling are both 'ON'!! :( ***");
+			//error = 1;
+			//$display("***TEST FAILED! Heating and Cooling are both 'ON'!! :( ***");
 		//$finish;
 		//end
 		//end
 		//end
+
 
 	// Finish test, check for success
 		initial begin
