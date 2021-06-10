@@ -80,52 +80,52 @@ module top_tb(
 		end
 
 
-		//If RGB does not match the corresponding colour (lookup table in mem.coe), test 			failed
+		//If RGB does not match the corresponding colour (lookup table in mem.coe), test failed
 		if ((colour==0)&&(enable==1)&&(rgb!=0)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(0) was not converted to the corresponding 				RGB(0)!! :( ***");
+			$display("***TEST FAILED! Colour(0) was not converted to the corresponding RGB(0)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==1)&&(enable==1)&&(rgb!=24'hFF)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(1) was not converted to the corresponding 				RGB(FF)!! :( ***");
+			$display("***TEST FAILED! Colour(1) was not converted to the corresponding RGB(FF)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==2)&&(enable==1)&&(rgb!=24'hFF00)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(2) was not converted to the corresponding 				RGB(FF00)!! :( ***");
+			$display("***TEST FAILED! Colour(2) was not converted to the corresponding RGB(FF00)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==3)&&(enable==1)&&(rgb!=24'hFFFF)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(3) was not converted to the corresponding 				RGB(FFFF)!! :( ***");
+			$display("***TEST FAILED! Colour(3) was not converted to the corresponding RGB(FFFF)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==4)&&(enable==1)&&(rgb!=24'hFF0000)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(4) was not converted to the corresponding 				RGB(FF0000)!! :( ***");
+			$display("***TEST FAILED! Colour(4) was not converted to the corresponding RGB(FF0000)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==5)&&(enable==1)&&(rgb!=24'hFF00FF)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(5) was not converted to the corresponding 				RGB(FF00FF)!! :( ***");
+			$display("***TEST FAILED! Colour(5) was not converted to the corresponding RGB(FF00FF)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==6)&&(enable==1)&&(rgb!=24'hFFFF00)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(6) was not converted to the corresponding 				RGB(FFFF00)!! :( ***");
+			$display("***TEST FAILED! Colour(6) was not converted to the corresponding RGB(FFFF00)!! :( ***");
 		$finish;
 		end
 
 		if ((colour==7)&&(enable==1)&&(rgb!=24'hFFFFFF)) begin
 			error = 1;
-			$display("***TEST FAILED! Colour(7) was not converted to the corresponding 				RGB(FFFFFF)!! :( ***");
+			$display("***TEST FAILED! Colour(7) was not converted to the corresponding RGB(FFFFFF)!! :( ***");
 		$finish;
 		end
 		end
