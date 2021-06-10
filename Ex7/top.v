@@ -20,10 +20,12 @@ module lights_selector(
 	input sel,
 	input rst,
 	input button,
+	input [23:0] white
 	output [23:0] light
 	);
 
-
+	//if (sel==0) begin
+		
 	
 
 	doorbell doorbell1 (

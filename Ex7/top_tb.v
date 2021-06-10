@@ -22,6 +22,7 @@ module top_tb(
 	reg error;
 	reg button;
 	reg sel;
+	wire white
 
 
 
