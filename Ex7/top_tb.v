@@ -15,14 +15,13 @@ module top_tb(
 	parameter CLK_PERIOD = 10;
 
 	// Wires and registers
-	//reg [2:0] colour;
 	wire [23:0] light;
 	reg clk;
 	reg rst;
 	reg error;
 	reg button;
 	reg sel;
-	reg [23:0] white;
+	//reg [23:0] white;
 
 
 
@@ -38,26 +37,26 @@ module top_tb(
 		error = 0;
 	end
 
-	initial begin
-		white = 24'b111111111111111111111111;
-	end
+	//initial begin
+	//	white = 24'b111111111111111111111111;
+	//end
 
 	initial begin
 		button =1;
-			forever
-				# (CLK_PERIOD*2) button=~button;
+			//forever
+			//	# (CLK_PERIOD*2) button=~button;
 	end
 	
 	initial begin
 	   sel = 1;
-	       forever
-	           # (CLK_PERIOD*3) sel=~sel;
+	      // forever
+	        //   # (CLK_PERIOD*3) sel=~sel;
 	end
 
 	initial begin
-		rst = 1;
-			forever
-				# (CLK_PERIOD*20) rst=~rst;
+		rst = 0;
+			//forever
+			//	# (CLK_PERIOD*20) rst=~rst;
 	end
 
 
@@ -78,6 +77,7 @@ module top_tb(
 		.rst (rst),
 		.button (button),
 		.light(light)
+		//.white(white)
 		);
 
 endmodule

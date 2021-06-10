@@ -20,17 +20,17 @@ module lights_selector(
 	input sel,
 	input rst,
 	input button,
-	input [23:0] white,
+	//input [23:0] white,
 	output [23:0] light
 	);
 
 	//if (sel==0) begin
 		
-	assign white = 24'b111111111111111111111111;
+	//assign white = 24'b111111111111111111111111;
 
 	doorbell doorbell1 (
 		.rgb(rgb),
-		.white(white),
+		.white(24'b111111111111111111111111),
 		.sel(sel),
 		.light(light)
 		);
