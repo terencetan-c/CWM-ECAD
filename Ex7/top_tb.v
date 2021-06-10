@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Test bench for Exercise #7 - Lights Selector
-// Student Name:
-// Date: 
+// Student Name: Terence Tan
+// Date: 10 June 2021
 //
 // Description: A testbench module to test Ex7 - Lights Selector
 // You need to write the whole file
@@ -16,7 +16,7 @@ module top_tb(
 
 	// Wires and registers
 	wire [23:0] light;
-	wire [23:0] rgb;
+	//wire [23:0] rgb;
 	reg clk;
 	reg rst;
 	reg error;

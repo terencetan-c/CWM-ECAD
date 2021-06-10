@@ -20,13 +20,15 @@ module lights_selector(
 	input sel,
 	input rst,
 	input button,
-	input [23:0] rgb,
+	//input [23:0] rgb,
 	//input [23:0] white,
 	output [23:0] light
 	);
-
+	
+	wire [23:0] rgb;
+	wire [2:0] colour;
 	wire out;
-		
+	
 	//assign white = 24'b111111111111111111111111;
 
 	//doorbell doorbell1 (
