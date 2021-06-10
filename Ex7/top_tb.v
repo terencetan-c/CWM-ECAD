@@ -22,7 +22,7 @@ module top_tb(
 	reg error;
 	reg button;
 	reg sel;
-	wire white
+	reg [23:0] white;
 
 
 
@@ -36,6 +36,10 @@ module top_tb(
     
 	initial begin
 		error = 0;
+	end
+
+	initial begin
+		white = 24'b111111111111111111111111;
 	end
 
 	initial begin
