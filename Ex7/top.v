@@ -26,21 +26,21 @@ module lights_selector(
 
 	
 
-	top_ex2 lights_selector (
+	doorbell doorbell1 (
 		.rgb(rgb),
 		.white(24'b111111111111111111111111),
 		.sel(sel),
 		.light(light)
 		);
 
-	top_ex4 lights selector (
+	LED LED1 (
 		.clk(clk),
 		.rst(rst),
 		.button(button),
 		.colour(colour)
 		);
 
-	top_ex6 lights selector (
+	RGB_converter RGB_converter1 (
 		.clk(clk),
 		.colour(colour),
 		.enable(1),

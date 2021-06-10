@@ -23,6 +23,9 @@ set_property -dict [list CONFIG.Write_Width_A {24} CONFIG.Write_Depth_A {8} CONF
 
 read_verilog "top.v"
 read_verilog "top_tb.v"
+read_verilog "top_ex2.v"
+read_verilog "top_ex4.v"
+read_verilog "top_ex6.v"
 
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
