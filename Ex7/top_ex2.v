@@ -22,10 +22,10 @@
 
 module doorbell(
     //Todo: define inputs here
-	input [23:0] rgb,
-	input [23:0] white,
-	input sel,
-	output [23:0] light
+	input [23:0] rgb_mux,
+	input [23:0] white_mux,
+	input sel_mux,
+	output [23:0] light_mux
 
     );
     
@@ -33,5 +33,5 @@ module doorbell(
 
 	wire out;
     //Todo: define your logic here                 
-      assign light = (sel==0) ? white : rgb;
+      assign light_mux = (sel_mux==0) ? white_mux : rgb_mux;
 endmodule

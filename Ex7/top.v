@@ -20,33 +20,38 @@ module lights_selector(
 	input sel,
 	input rst,
 	input button,
+	input [23:0] rgb,
 	//input [23:0] white,
 	output [23:0] light
 	);
 
-	//if (sel==0) begin
+	wire out;
 		
 	//assign white = 24'b111111111111111111111111;
 
-	doorbell doorbell1 (
-		.rgb(rgb),
-		.white(24'b111111111111111111111111),
-		.sel(sel),
-		.light(light)
-		);
+	//doorbell doorbell1 (
+	//	.rgb_mux(rgb),
+	//	.white_mux(24'b111111111111111111111111),
+	//	.sel_mux(sel),
+	//	.light_mux(light)
+	//	);
+
+
+ 	assign light = (sel==0) ? 24'hFFFFFF : rgb;
+
 
 	LED LED1 (
-		.clk(clk),
-		.rst(rst),
-		.button(button),
-		.colour(colour)
+		.clk_LED(clk),
+		.rst_LED(rst),
+		.button_LED(button),
+		.colour_LED(colour)
 		);
 
 	RGB_converter RGB_converter1 (
-		.clk(clk),
-		.colour(colour),
-		.enable(1),
-		.rgb(rgb)
+		.clk_con(clk),
+		.colour_con(colour),
+		.enable_con(1),
+		.rgb_con(rgb)
 		);
 		
 

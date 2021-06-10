@@ -18,46 +18,46 @@
 `timescale 1ns / 100ps
 
 module LED (
-	input clk,
-	input rst,
-	input button,
-	output [2:0] colour
+	input clk_LED,
+	input rst_LED,
+	input button_LED,
+	output [2:0] colour_LED
 	);
 
-	reg [2:0] colour;
+	reg [2:0] colour_LED;
 
 
 	// User logic
 
-	always @(posedge clk) begin
-		if (rst) begin
-			colour<=0;
+	always @(posedge clk_LED) begin
+		if (rst_LED) begin
+			colour_LED<=0;
 		end
 		else begin
 
-		if (colour==0) begin
-			colour <= colour + 1;
+		if (colour_LED==0) begin
+			colour_LED <= colour_LED + 1;
 		end
 
-		else if (colour==7) begin
-			colour <= 1;
+		else if (colour_LED==7) begin
+			colour_LED <= 1;
 		end
 
 		else begin
-			if (colour==6) begin
-				if (button) begin
-					colour<=1;
+			if (colour_LED==6) begin
+				if (button_LED) begin
+					colour_LED<=1;
 				end
 				else begin
-				colour<=colour;
+				colour_LED<=colour_LED;
 				end
 			end
 			else begin
-				if (button) begin
-					colour <=colour+1;
+				if (button_LED) begin
+					colour_LED <=colour_LED+1;
 				end
 				else begin
-					colour<=colour;
+					colour_LED<=colour_LED;
 				end
 			end
 		end

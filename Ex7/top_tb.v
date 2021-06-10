@@ -16,12 +16,13 @@ module top_tb(
 
 	// Wires and registers
 	wire [23:0] light;
+	wire [23:0] rgb;
 	reg clk;
 	reg rst;
 	reg error;
 	reg button;
 	reg sel;
-	//reg [23:0] white;
+	//wire [23:0] white;
 
 
 
@@ -44,19 +45,19 @@ module top_tb(
 	initial begin
 		button =1;
 			//forever
-			//	# (CLK_PERIOD*2) button=~button;
+			//	# (CLK_PERIOD*5) button=~button;
 	end
 	
 	initial begin
 	   sel = 1;
-	      // forever
-	        //   # (CLK_PERIOD*3) sel=~sel;
+	       //forever
+	         //  # (CLK_PERIOD*7) sel=~sel;
 	end
 
 	initial begin
 		rst = 0;
-			//forever
-			//	# (CLK_PERIOD*20) rst=~rst;
+			forever
+				# (CLK_PERIOD*20) rst=~rst;
 	end
 
 
