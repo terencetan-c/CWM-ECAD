@@ -25,35 +25,12 @@ module RGB_converter(
 	
 
 
-	wire douta, rgb;
-	wire enable,ena;
-	wire clk,clka;
-	wire colour, addra;
-
-	assign wea = 0;
-	assign dina=0;
-
-	// User logic
-	always @(posedge clk) begin
-	
-		if (enable==0) begin
-			#10;
-		end
-		else begin
-			#0;
-		end
-	end
-	
-
-
-	RGB_Converter RGB_converter (
-  		.clka(clk),    // input wire clka
-  		.ena(enable),      // input wire ena
-  		.wea(wea),      // input wire [0 : 0] wea
-  		.addra(colour),  // input wire [2 : 0] addra
-  		.dina(dina),    // input wire [23 : 0] dina
-  		.douta(rgb)  // output wire [23 : 0] douta
+	blk_mem_gen_1 RGB_converter (
+	  .clka(clk),    // input wire clka
+	  .ena(enable),      // input wire ena
+	  .wea(0),      // input wire [0 : 0] wea
+	  .addra(colour),  // input wire [2 : 0] addra
+	  .dina(24'b0),    // input wire [23 : 0] dina
+	  .douta(rgb)  // output wire [23 : 0] douta
 	);
-
-
 endmodule
