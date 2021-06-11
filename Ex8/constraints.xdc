@@ -17,7 +17,13 @@ set_property BITSTREAM.CONFIG.SPI_FALL_EDGE YES        [current_design]
 #############################################################################################################
 
 
-create_generated_clocks -name clk_gen -period 0.0000001 [get_ports Clk]
+//Is the line below necessary?
+//create_generated_clocks -name clk_gen -period 0.0000001 [get_ports Clk]
+
+create_clock -period 10 -name Clk  [get_ports clk_p]
+
+set_clock_groups -asynchronous -group [get_clocks Clk -include_generated_clocks]
+
 set_property PACKAGE_PIN AY38 [get_ports {clk_n}]
 set_property IOSTANDARD DIFF_SSTL12 [get_ports {clk_n}]
 
