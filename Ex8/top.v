@@ -43,7 +43,7 @@ module top(
 //Add logic here
 
 	Air_con Air_con1 (
-	.clk(),
+	.clk(clk),
 	.temperature(temperature),
 	.heating(heating),
 	.cooling(cooling)
