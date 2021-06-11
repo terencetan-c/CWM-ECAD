@@ -17,5 +17,6 @@ set_property BITSTREAM.CONFIG.SPI_FALL_EDGE YES        [current_design]
 #############################################################################################################
 
 
+create_generated_clocks -name clk_gen -period 0.0000001 [get_ports Clk]
 
 
