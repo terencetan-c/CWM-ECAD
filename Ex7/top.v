@@ -16,32 +16,25 @@
 `timescale 1ns / 100ps
 
 module lights_selector(
+	
+	// Inputs and outputs	
 	input clk,
 	input sel,
 	input rst,
 	input button,
-	//input [23:0] rgb,
-	//input [23:0] white,
 	output [23:0] light
 	);
 	
+	// Wires
 	wire [23:0] rgb;
 	wire [2:0] colour;
 	wire out;
 	
-	//assign white = 24'b111111111111111111111111;
-
-	//doorbell doorbell1 (
-	//	.rgb_mux(rgb),
-	//	.white_mux(24'b111111111111111111111111),
-	//	.sel_mux(sel),
-	//	.light_mux(light)
-	//	);
-
-
+	// User logic
  	assign light = (sel==0) ? 24'hFFFFFF : rgb;
 
 
+	// Instantiate modules
 	LED LED1 (
 		.clk_LED(clk),
 		.rst_LED(rst),
@@ -57,13 +50,6 @@ module lights_selector(
 		);
 		
 
-	//blk_mem_gen_1 RGB_converter (
-	  //.clka(clk),    // input wire clka
-	  //.ena(enable),      // input wire ena
-	  //.wea(0),      // input wire [0 : 0] wea
-	  //.addra(colour),  // input wire [2 : 0] addra
-	  //.dina(24'b0),    // input wire [23 : 0] dina
-	  //.douta(rgb)  // output wire [23 : 0] douta
-	//);
+
 endmodule
 

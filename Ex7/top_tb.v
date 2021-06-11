@@ -16,13 +16,12 @@ module top_tb(
 
 	// Wires and registers
 	wire [23:0] light;
-	//wire [23:0] rgb;
 	reg clk;
 	reg rst;
 	reg error;
 	reg button;
 	reg sel;
-	//wire [23:0] white;
+
 
 
 
@@ -38,28 +37,45 @@ module top_tb(
 		error = 0;
 	end
 
-	//initial begin
-	//	white = 24'b111111111111111111111111;
-	//end
+
 
 	initial begin
-		button =1;
-			//forever
-			//	# (CLK_PERIOD*5) button=~button;
+		button =0;
+			forever
+				# (CLK_PERIOD*5) button=~button;
 	end
 	
 	initial begin
-	   sel = 1;
-	       //forever
-	         //  # (CLK_PERIOD*7) sel=~sel;
+	   sel = 0;	
+	           # (CLK_PERIOD*7) sel=~sel;
 	end
 
 	initial begin
+		rst = 1;
+		#100
 		rst = 0;
-			forever
-				# (CLK_PERIOD*20) rst=~rst;
-	end
+			
+	// Test for errors
+	forever begin
+		# (CLK_PERIOD-6)
+		
+		//If sel=0 but light is not white, test failed
+		if ((light!=24'hFFFFFF)&&(sel==0)) begin
+			error = 1;
+			$display("***TEST FAILED! sel=0 but light is not white!! :( ***");
+		$finish;
+		end
 
+
+		//If rst=1 and sel=1 but light is not 0, test failed
+		if ((light!=0)&&(rst==1)&&(sel==1)) begin
+			error = 1;
+			$display("***TEST FAILED! rst=1 and sel=1 but light is not 0!! :( ***");
+		$finish;
+		end
+
+		end
+		end
 
 	// Finish test, check for success
 		initial begin
@@ -78,7 +94,6 @@ module top_tb(
 		.rst (rst),
 		.button (button),
 		.light(light)
-		//.white(white)
 		);
 
 endmodule
